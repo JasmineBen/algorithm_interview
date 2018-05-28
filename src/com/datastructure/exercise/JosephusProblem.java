@@ -9,7 +9,8 @@ public class JosephusProblem {
 	
 	public static void main(String[] args) {
 		JosephusProblem test = new JosephusProblem();
-		System.out.println(test.winnerIndex(10, 1));
+		System.out.println(test.winnerIndex(10, 3));
+		System.out.println(test.getLive(10, 3));
 	}
 	
 	/**
@@ -54,5 +55,42 @@ public class JosephusProblem {
 		}
 		return f[n];
 	}
+	
+	/**
+	 * 假设有i个人，编号从0-(i-1),假设报A的编号是B，则A B有如下关系
+	 * 报数A   编号B
+	 *  0     0
+	 *  1     1   
+	 *  2     2
+	 * i-1   i-1
+	 *  i     0
+	 * i+1    1
+	 * 2i-2  i-2
+	 * 2i-1  i-1
+	 *  2i    0
+	 *所以A和B有如下关系：B= A%i-------公式1
+	 *假设i个人进行报数，最后剩下的编号为num[i],那么i-1个人最后剩下的编号为num[i-1]
+	 *接下来就是要找到num[i]和num[i-1]的数值关系
+	 *如果编号s被删除，那么i就变成i-1,每个节点的编号有如下变化:
+	 *s-2   i-3
+	 *s-1   i-2
+	 *s     被删除，无编号
+	 *s+1    0
+	 *s+2    1
+	 *编号为s的节点往后的节点s+1，s+2就变成了新环中的编号0,1,2;
+	 *编号s之前的节点s-1就变成了环的最后一个节点i-2.
+	 *假设环大小为i的节点编号为old，环大小为i-1的节点编号为new，则有如下公式：
+	 *old = (new+s+1)%i--------------公式2
+	 *假设报到m自杀，代入公式1,被杀的节点编号为B=m%i,即s=m%i；代入公式2，
+	 *old=(new+m%i+1)%i;简化为old=(new+m+1)%i
+	 *所以num[i] = (num[new]+m+1)%i
+	 */
+	public int getLive(int i,int m){
+		if(i==1){
+			return 0;
+		}
+		return (getLive(i-1,m)+m+1)%i;
+	}
+	
 
 }

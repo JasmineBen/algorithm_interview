@@ -1,97 +1,76 @@
 package com.datastructure.exercise;
 
-import java.util.ArrayList;
+import com.datastructure.basic.ListNode;
 
 /**
  * 链表逆序
+ * 分为单链表和双向链表逆序两种
  */
 public class ReverseList {
 
-	static class ListNode{
-		ListNode next = null;
-		int val = 0;
-		
-		ListNode(){
-			
-		}
-		
-		ListNode(int val){
-			this.val = val;
-		}
-	}
 	
 	public static void main(String[] args) {
 		ListNode head = new ListNode();
 		ListNode first = new ListNode(1);
 		head.next = first;
+		head.pre = null;
 		ListNode two = new ListNode(2);
 		first.next = two;
+		first.pre = head;
 		ListNode three = new ListNode(3);
 		two.next = three;
+		two.pre = first;
 		ListNode four = new ListNode(4);
 		three.next = four;
+		three.pre = two;
+		four.pre = three;
 		ReverseList reverseList = new ReverseList();
-		//ListNode result = reverseList.reverseWithoutHead(first);
 		//ListNode result = reverseList.reverseWithHead(head);
-		ListNode result = reverseList.reverseWithHead2(head);
-		while(result != null){
-			System.out.println(result.val);
+//		ListNode result = reverseList.reverseDoublyWithoutHead(first);
+		ListNode result = reverseList.reverseDoublyWithHead(head);
+		ListNode next = result;
+		while(next != null){
+			System.out.print(next.val+";");
+			next = next.next;
+		}
+		System.out.println();
+		while(result != null && result.next != null){
 			result = result.next;
 		}
-		
-		
+		while(result != null){
+			System.out.print(result.val+";");
+			result = result.pre;
+		}
 	}
 	
 	/**
-	 *1、定义一个pre和一个next元素，
-	 *2、首先将next设置成当前访问节点的next
-	 *3、将当前元素的next设置成pre
-	 *4、设置pre为当前元素，设置当前元素为next
+	 * 单向列表没有头节点
+	 *1、定义一个pre和一个next元素，初始化时pre=null,next=首节点
+	 *2、循环将next.next指向pre，将pre设置为next，并将next后移
+	 *3、最后返回next
 	 */
 	public ListNode reverseWithoutHead(ListNode listNode) {
 		ListNode pre = null;
-		ListNode next = null;
-		while(listNode != null){
-			next = listNode.next;
-			listNode.next = pre;
-			pre = listNode;
-			listNode = next;
-			
+		ListNode next = listNode;
+		while(next != null && next.next!=null){
+			ListNode nextNext = next.next;
+			next.next = pre;
+			pre = next;
+			next = nextNext;
 		}
-		return pre;
+		next.next = pre;
+		return next;
 	}
 	
-	/**
-	 * 每次将后lastNode后面的元素插入到head后面
-	 * @param head
-	 * @return
-	 */
-	public ListNode reverseWithHead(ListNode head) {
-		if(head == null || head.next == null || head.next.next == null){
-			return head;
-		}
-		//初始状态head.next,也是逆序后的最后一个元素
-		ListNode lastNode = head.next;
-		ListNode currentInsertNode = head.next.next;
-		while(currentInsertNode != null){
-			ListNode nextInsertNode = currentInsertNode.next;
-			currentInsertNode.next = head.next;
-			head.next = currentInsertNode;
-			lastNode.next = nextInsertNode;
-			currentInsertNode = lastNode.next;
-		}
-		return head;
-	}
 	
 	/**
+	 * 单向列表有head
 	 * 设置pre和next，next在pre后面
 	 * 先保存next.next，然后将next.next设置为pre
 	 * 将pre设置为next，将next设置为刚刚保存的next.next
 	 * 在最后一个元素修改完成后next=next.next=null，结束：修改head的next
-	 * @param head
-	 * @return
 	 */
-	public ListNode reverseWithHead2(ListNode head) {
+	public ListNode reverseWithHead(ListNode head) {
 		if(head == null || head.next == null || head.next.next == null){
 			return head;
 		}
@@ -100,12 +79,55 @@ public class ReverseList {
 		ListNode next = head.next.next;
 		pre.next = null;
 		while(next != null){
-			ListNode nextInsertNode = next.next;
+			ListNode nextNext = next.next;
 			next.next = pre;
 			pre = next;
-			next = nextInsertNode;
+			next = nextNext;
 		}
 		head.next = pre;
 		return head;
 	}
+	
+	/**
+	 * 双向链表没有头节点
+	 */
+	public ListNode reverseDoublyWithoutHead(ListNode listNode) {
+		ListNode pre = null;
+		ListNode next = listNode;
+		while(next != null && next.next!=null){
+			ListNode nextNext = next.next;
+			next.next = pre;
+			next.pre = nextNext;
+			pre = next;
+			next = nextNext;
+		}
+		next.next = pre;
+		next.pre = null;
+		return next;
+	}
+	
+	/**
+	 * 双向链表有头节点
+	 */
+	public ListNode reverseDoublyWithHead(ListNode listNode) {
+		ListNode pre = listNode;
+		ListNode next = listNode.next;
+		ListNode firstNode = listNode.next;
+		pre.next = null;
+		while(next != null){
+			ListNode nextNext = next.next;
+			if(firstNode != next){
+				next.next = pre;
+			}else{
+				next.next = null;
+			}
+			next.pre = nextNext;
+			pre = next;
+			next = nextNext;
+		}
+		listNode.next = pre;
+		pre.pre = listNode;
+		return listNode;
+	}
+	
 }

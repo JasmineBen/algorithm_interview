@@ -37,6 +37,10 @@ public class FindFirstCommonNode {
 		System.out.println(result);
 	}
 	
+	/**
+	 * 计算两个链表的长度为m,n,并假设n>m
+	 * 则可以让长的链表先走n-m步，然后两个链表同时移动指针，当到达同一节点时，就找到了公共节点
+	 */
 	public ListNode FindFirstCommonNode(ListNode pHead1, ListNode pHead2) {
 		int length1 = lenght(pHead1);
 		int length2 = lenght(pHead2);

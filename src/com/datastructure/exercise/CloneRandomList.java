@@ -88,12 +88,12 @@ public class CloneRandomList {
 		
 		//²ð·Ö
 		RandomListNode result = pHead.next;
-		RandomListNode temp;
 		currentNode = pHead;
-		while(currentNode.next != null){
-			temp = currentNode.next;
-			currentNode.next = temp.next;
-			currentNode = temp;
+		RandomListNode tmp = null;
+		while (currentNode.next != null) {
+			tmp = currentNode.next;
+			currentNode.next = tmp.next;
+			currentNode = tmp;
 		}
 		return result;
 	}

@@ -1,5 +1,7 @@
 package com.datastructure.exercise;
 
+import com.datastructure.basic.TreeNode;
+
 /*
  * 编写一个程序，把一个有序整数数组放到二叉树中
  */

@@ -22,7 +22,7 @@ public class GetNextTreeNode {
 		if (pNode == null) {
 			return null;
 		}
-		if(pNode.right != null){//右子树不空,找到右子树的最左节点
+		if(pNode.right != null){//右子树不空
 			pNode = pNode.right;
 			while(pNode.left != null){
 				pNode = pNode.left;
@@ -30,7 +30,7 @@ public class GetNextTreeNode {
 			return pNode;
 		}
 		
-		//右子树为空，找到其父子树中，父节点是祖父节点左子树中的祖父节点
+		//右子树为空
 		while(pNode.next != null){
 			if(pNode.next.left== pNode){
 				return pNode.next;

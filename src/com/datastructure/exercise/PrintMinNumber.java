@@ -13,9 +13,9 @@ import java.util.List;
 public class PrintMinNumber {
 	
 	public static void main(String[] args) {
-		int[] nums = new int[]{321,3,44,32};
+		int[] nums = new int[]{3,32,321};
 		PrintMinNumber test = new PrintMinNumber();
-		System.out.println(test.PrintMinNumber(nums));
+		test.PrintMinNumber(nums);
 	}
 
 	/*
@@ -37,7 +37,7 @@ public class PrintMinNumber {
 		Collections.sort(source,new Comparator<String>() {
 			@Override
 			public int compare(String o1, String o2) {
-				return (o1+o2).compareTo(o2+o1);
+				return (o1+o1).compareTo(o2+o1);
 			}
 		});
 		StringBuffer sb = new StringBuffer();

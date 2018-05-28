@@ -17,33 +17,34 @@ public class DeleteDuplicationListNode {
 	}
 
 	public ListNode deleteDuplication(ListNode pHead) {
-		if(pHead == null){
+		if (pHead == null) {
 			return null;
 		}
 		ListNode head = new ListNode(Integer.MAX_VALUE);
 		head.next = pHead;
-		ListNode preNode = head;
-		ListNode postNode = pHead;
+		ListNode pre = head;
+		ListNode post = head.next;
 		int sameNum = 0;
-		while(postNode != null){
-			if(postNode.next == null){
+		while(post != null){
+			if(post.next == null){
 				if(sameNum > 0){
-					preNode.next = null;
+					pre.next = null;
 				}
-				postNode = postNode.next;
+				post = post.next;
 				sameNum = 0;
-			}else if(postNode.val == postNode.next.val){
-				postNode = postNode.next;
-				sameNum++;
+			}else if(post.val == post.next.val){
+				post = post.next;
+				sameNum ++;
 			}else{
 				if(sameNum > 0){
-					preNode.next = postNode.next;
-					postNode = postNode.next;
+					pre.next = post.next;
+					post = post.next;
+					sameNum = 0;
 				}else{
-					preNode = postNode;
-					postNode = postNode.next;
+					pre = post;
+					post = post.next;
 				}
-				sameNum = 0;
+				
 			}
 		}
 		return head.next;

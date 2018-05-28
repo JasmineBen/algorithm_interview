@@ -6,6 +6,14 @@ package com.datastructure.exercise;
  */
 public class DiffBit {
 
+	/**
+	 * 根据异或运算
+	 * 0^0=0
+	 * 1^1=0
+	 * 0^1=1
+	 * 可以先对两个数进行异或运算，然后计算异或结果中的1的个数
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		int a = 1999;
 		int b = 2999;

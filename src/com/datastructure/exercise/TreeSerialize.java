@@ -1,5 +1,7 @@
 package com.datastructure.exercise;
 
+import com.datastructure.basic.TreeNode;
+
 /**
  * 请实现两个函数，分别用来序列化和反序列化二叉树
  *

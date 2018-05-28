@@ -1,12 +1,10 @@
 package com.datastructure.exercise;
 
+import com.datastructure.basic.TreeNode;
+
 /**
  * 给定一颗二叉搜索树，请找出其中的第k大的结点。
- * 例如， 5
- *    / \ 
- *   3   7 
- *  /\   /\ 
- * 2  4  6 8 中，按结点数值大小顺序第三个结点的值为4。
+ * 例如， 5 / \ 3 7 /\ /\ 2 4 6 8 中，按结点数值大小顺序第三个结点的值为4。
  *
  */
 public class KthNode {
@@ -40,7 +38,7 @@ public class KthNode {
 		}else if(leftCount >= k){
 			return KthNode(pRoot.left, k);
 		}else{
-			return KthNode(pRoot.right, k-leftCount-1);
+			return KthNode(pRoot.right, k-count(pRoot.left)-1);
 		}
 		
 	}

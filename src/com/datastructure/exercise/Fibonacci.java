@@ -18,14 +18,18 @@ public class Fibonacci {
 		if (n == 0) {
 			return 0;
 		}
-		int x = 0;// f(0)
-		int y = 1;// f(1)
-		// 依次计算f(2),f(3)...f(n)
-		for (int i = 1; i < n; i++) {
-			y = x + y;// f(n)
-			x = y - x;// f(n-1)
+		if(n==1 || n ==2){
+			return 1;
 		}
-		return y;
+		int f2 = 1;// f(n-2)
+		int f1 = 1;// f(n-1)
+		// 依次计算f(3)...f(n)
+		for (int i = 3; i <= n; i++) {
+			int tmp = f1;
+			f1 = f1 + f2;
+			f2 = tmp;
+		}
+		return f1;
 	}
 
 	/**
@@ -37,14 +41,18 @@ public class Fibonacci {
 		if (n == 0 || n == 1) {
 			return 1;
 		}
-		int x = 1;// f(0)
-		int y = 1;// f(1)
-		// 依次计算f(2),f(3)...f(n)
-		for (int i = 1; i < n; i++) {
-			y = x + y;// f(n)
-			x = y - x;// f(n-1)
+		if(n == 2){
+			return 2;
 		}
-		return y;
+		int f2 = 1;// f(n-2),n=1
+		int f1 = 2;// f(n-1),n=2
+		// 依次计算f(3)...f(n)
+		for (int i = 3; i <= n; i++) {
+			int tmp = f1;
+			f1 = f1 + f2;//新的f(n-1)
+			f2 = tmp;//新的f(n-2)
+		}
+		return f1;
 	}
 
 	/**
@@ -60,7 +68,7 @@ public class Fibonacci {
 	 * 6、f(2)=2*1=2,f(3)=4,f(4)=8
 	 */
 	public int jumpFloorII(int target) {
-		return 1<<(target-1);
+		return 1<<(target-1);//1左移(target-1)位
 	}
 	
 	/**

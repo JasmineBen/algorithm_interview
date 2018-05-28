@@ -30,13 +30,11 @@ public class FindPartionNum {
 		}
 		int min = data[len-1];
 		for (int i = len- 1; i >= 1; i--) {
-			//min=min{a[i],...a[len-1]}
 			if(a[i] < min){
 				min = a[i];
 			}
-			//data[i-1]=max{a[0],...a[i-1]}
-			//a[i]>=max{a[0],...a[i-1]}
-			//a[i]<=min{a[i]...a[len-1]}
+			//a[i]>=data[i-1],意味着a[i]大于其左边的所有元素
+			//a[i]<=min说明a[i]小于右边的最小值，也就小于右边的所有元素
 			if(a[i]>=data[i-1] && a[i]<=min){
 				return data[i];
 			}

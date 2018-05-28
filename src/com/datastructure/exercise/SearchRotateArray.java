@@ -42,9 +42,9 @@ public class SearchRotateArray {
 				}
 				return min;
 			}
-			if(a[start] <= a[mid]){//mid属于前半段递增系列
+			if(a[start] <= a[mid]){
 				start = mid;
-			}else{//mid属于后半段递增系列
+			}else{
 				end = mid;
 			}
 			if(start + 1 == end){

@@ -6,13 +6,14 @@ package com.datastructure.basic;
 public class Sort {
 	
 	public static void main(String[] args) {
-//		int[] a = new int[]{5,3,6,2,7,1,4,0,9,8};
-		int[] a = new int[]{1,2,3,4,5,6,7,8,9};
-		//quickSort(a);
-		//bubbleSort(a);
+		int[] a = new int[]{5,3,6,2,7,1,4,0,9,8};
+//		int[] a = new int[]{1,2,3,4,5,6,7,8,9};
+//		quickSort(a);
+//		bubbleSort(a);
 		//selectSort(a);
 //		insertSort(a);
 		mergeSort(a);
+//		heapSort(a);
 		for(int i : a){
 			System.out.println(i);
 		}
@@ -29,9 +30,17 @@ public class Sort {
 	 * @param a
 	 */
 	public static void bubbleSort(int[] a) {
-		for (int i = a.length - 1; i > 0; i--) {
-			for (int j = 0; j < i; j++) {
-				if (a[j] > a[j + 1]) {
+//		for (int i = a.length - 1; i > 0; i--) {
+//			for (int j = 0; j < i; j++) {
+//				if (a[j] > a[j + 1]) {
+//					swap(a, j, j + 1);
+//				}
+//			}
+//		}
+		
+		for (int i = 0; i<a.length; i++) {
+			for (int j = 0; j < a.length-i-1; j++) {
+				if (a[j] < a[j + 1]) {
 					swap(a, j, j + 1);
 				}
 			}
@@ -82,7 +91,7 @@ public class Sort {
 	 */
 	public static void mergeSort(int[] a){
 		int[] tmp = new int[a.length];
-		mergeSort(a, 0, a.length, tmp);
+		mergeSort(a, 0, a.length-1, tmp);
 	}
 	
 	private static void mergeSort(int[] a, int first,int last, int[] tmp) {
@@ -106,7 +115,7 @@ public class Sort {
 	private static void merge(int[] a, int first, int mid, int last, int[] tmp) {
 		int i = first, j = mid + 1;
 		int k = 0;
-		while (i <= mid && j < a.length) {
+		while (i <= mid && j <= last) {
 			if (a[i] < a[j]) {
 				tmp[k++] = a[i++];
 			} else {
@@ -122,7 +131,7 @@ public class Sort {
 			tmp[k++] = a[j++];
 		}
 
-		for (i = 0; i < k; i++) {
+		for (i = 0; i < k; i++) {//拷贝到原数组
 			a[first + i] = tmp[i];
 		}
 	}
@@ -166,6 +175,51 @@ public class Sort {
 		}
 		a[end] = key;
 		return end;
+	}
+	
+	/**
+	 * 大根堆：根节点的值大于左右子树,并且是完全二叉树。
+	 * 如果按照层次遍历二叉树得到数组arr,那么a[i]>=a[2i+1] 且 a[i]>=a[2i+2]。
+	 * 实现堆排序首先是建堆：从非叶子节点开始，从小而上，从右到左调整
+	 */
+	public static void heapSort(int[] arr){
+		if(arr != null){
+			//建堆
+			for(int i = arr.length/2-1;i>=0;i--){
+				adjustHeap(arr, i, arr.length);
+			}
+			
+			//调整堆，交换对顶元素和末尾元素
+			for(int i=arr.length-1;i>=0;i--){
+				swap(arr, 0, i);//交换堆顶和末尾元素
+				//交换完成后需要调整堆
+				adjustHeap(arr, 0, i);
+			}
+			
+		}
+	}
+	
+	//调整堆，
+	private static void adjustHeap(int[] arr, int i, int len) {
+		int tmp = arr[i];
+		/**
+		 * 从i的左孩子开始，也就是2i+1,开始向小调整，如果a[i]小于左节点a[2i+1]或者右节点a[2i+2]，
+		 * 那么就交换a[i]和max(a[2i+1],a[2i+2]),假设和a[2i+1]交换了，
+		 * 那么以a[2i+1]为根的左子树可能失去平衡，需要继续调整a[2i+1]的子树a[2(2i+1)+1],a[2(2i+1)+2]
+		 */
+		for (int j = 2 * i + 1; j < len; j = 2 * j + 1) {
+			if(j+1<len &&arr[j] < arr[j+1]){//a[2i+1]<a[2i+2],a[i]和a[2i+2交换]
+				j++;
+			}
+			if(tmp < arr[j]){
+				arr[i] = arr[j];//交换a[i]和max(a[2i+1],a[2i+2])
+				i = j;
+			}else{
+				break;
+			}
+		}
+		arr[i] = tmp;
+
 	}
 	
 	

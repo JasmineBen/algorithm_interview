@@ -8,14 +8,14 @@ package com.datastructure.exercise;
 public class LIS {
 	
 	private int[] dp;
-	private int lis = 1;
+	private int lis = 1;//最长的递增子序列的长度
 	
 	public static void main(String[] args) {
 		int[] a = new int[]{1,-1,2,-3,4,-5,6,-7};
 		LIS test = new LIS();
 		test.lis(a);
-		//System.out.println(test.lis);
-		test.print(a, a.length);
+//		System.out.println(test.lis);
+		test.print(a, a.length-1);
 	}
 
 	/**
@@ -27,7 +27,7 @@ public class LIS {
 	 */
 	public void lis(int[] a){
 		if(dp == null){
-			dp = new int[a.length+1];
+			dp = new int[a.length];
 			for(int i = 0;i<dp.length;i++){
 				dp[i] = 1;
 			}
@@ -42,19 +42,28 @@ public class LIS {
 		}
 	}
 	
+	/**
+	 * lis为最长递增子序列的长度
+	 * 从后向前遍历数组，找到dp[index]=lis的第一个数，该数就是最长递增子序列的最后一个数
+	 * ，然后继续从index-1向前常驻lis-1对应的索引，lis=0
+	 * @param a
+	 * @param index
+	 */
 	public void print(int[] a,int index){
-		boolean flag = false;
+		boolean bPrint = false;
 		if(index < 0 || lis == 0){
 			return;
 		}
 		if(dp[index] == lis){
-			--lis;
-			flag = true;
+			lis -= 1;
+			bPrint = true;
 		}
-		print(a,--index);
-		if(flag){
+		index--;
+		print(a, index);
+		if(bPrint){
 			System.out.println(a[index+1]);
 		}
+		
 		
 	}
 }
