@@ -6,7 +6,7 @@ package com.datastructure.exercise;
  * 例如，如果输入长度为7的数组{2,3,1,0,2,5,3}，那么对应的输出是第一个重复的数字2。
  *
  */
-public class 查询数组的重复数字 {
+public class 数组的重复数字 {
 	
 	public static void main(String[] args) {
 		int[] a = {2,3,1,0,2,5,3};

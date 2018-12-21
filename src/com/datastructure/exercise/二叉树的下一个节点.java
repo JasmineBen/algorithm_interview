@@ -5,7 +5,7 @@ package com.datastructure.exercise;
  * 注意，树中的结点不仅包含左右子结点，同时包含指向父结点的指针。
  *
  */
-public class 查询二叉树的下一个节点 {
+public class 二叉树的下一个节点 {
 
 	private static class TreeLinkNode {
 	    int val;

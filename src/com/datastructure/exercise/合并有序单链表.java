@@ -4,7 +4,7 @@ package com.datastructure.exercise;
  * 
  * 输入两个单调递增的链表，输出两个链表合成后的链表，当然我们需要合成后的链表满足单调不减规则。
  */
-public class 合并单链表 {
+public class 合并有序单链表 {
 
 	static class ListNode {
 		ListNode next = null;
@@ -72,5 +72,5 @@ public class 合并单链表 {
 		}
 		return head;
 	}
-
+	
 }

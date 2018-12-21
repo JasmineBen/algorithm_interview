@@ -1,6 +1,10 @@
 package com.datastructure.exercise;
 
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Queue;
+
+import com.datastructure.basic.ListNode;
 
 public class StringExercise {
 	

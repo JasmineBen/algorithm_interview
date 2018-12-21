@@ -8,7 +8,7 @@ import com.datastructure.basic.ListNode;
  * Note:必须以不同的速度移动，一前一后
  *
  */
-public class 找出带环双链表的入口 {
+public class 找出带环链表的入口 {
 
 
 	/**

@@ -8,7 +8,7 @@ import com.datastructure.basic.ListNode;
  * 两个单链表相加，例如9->3->7和6->3相加后为： 1->0->0->0
  *
  */
-public class 单链表相加 {
+public class 链表相加 {
 	
 	public static void main(String[] args) {
 		ListNode first = new ListNode(9);

@@ -4,7 +4,7 @@ package com.datastructure.exercise;
  * 计算连续子向量的最大和
  * 例如:{6,-3,-2,7,-15,1,2,2},连续子向量的最大和为8(从第0个开始,到第3个为止)
  */
-public class 连续子向量的和 {
+public class 最大子序和 {
 
 	
 	public static void main(String[] args) {

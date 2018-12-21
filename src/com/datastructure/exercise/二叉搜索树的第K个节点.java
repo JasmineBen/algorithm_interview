@@ -7,7 +7,7 @@ import com.datastructure.basic.TreeNode;
  * 例如， 5 / \ 3 7 /\ /\ 2 4 6 8 中，按结点数值大小顺序第三个结点的值为4。
  *
  */
-public class 查询二叉搜索树的第K个节点 {
+public class 二叉搜索树的第K个节点 {
 	
 	public static void main(String[] args) {
 		TreeNode root = new TreeNode(8);
@@ -17,7 +17,7 @@ public class 查询二叉搜索树的第K个节点 {
 		root.left.right = new TreeNode(7);
 		root.right.left = new TreeNode(9);
 		root.right.right = new TreeNode(11);
-		查询二叉搜索树的第K个节点 test = new 查询二叉搜索树的第K个节点();
+		二叉搜索树的第K个节点 test = new 二叉搜索树的第K个节点();
 		test.KthNode(root, 1);
 	}
 	

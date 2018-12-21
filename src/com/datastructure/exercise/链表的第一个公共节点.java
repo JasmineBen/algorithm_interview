@@ -4,7 +4,7 @@ package com.datastructure.exercise;
  * 输入两个链表，找出它们的第一个公共结点
  *
  */
-public class 两个链表的第一个公共节点 {
+public class 链表的第一个公共节点 {
 	
 	private static class ListNode {
 	    int val;
@@ -32,7 +32,7 @@ public class 两个链表的第一个公共节点 {
 		common.next = new ListNode(7);
 		head1.next.next.next = common;
 		head2.next.next = common;
-		两个链表的第一个公共节点 test = new 两个链表的第一个公共节点();
+		链表的第一个公共节点 test = new 链表的第一个公共节点();
 		ListNode result = test.FindFirstCommonNode(head1, head2);
 		System.out.println(result);
 	}
