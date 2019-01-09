@@ -10,13 +10,13 @@ import java.util.Map;
  * @author admin
  *
  */
-public class Graph {
+public class 无向图 {
 	private final int V;//顶点数
 	private int E;//边的数量
 	private Map<Integer,List<Integer>> adj;//邻接表
 	private boolean directed;
 	
-	public Graph(int v,boolean directed) {
+	public 无向图(int v,boolean directed) {
 		this.V = v;
 		this.directed = directed;
 		adj = new HashMap<>();

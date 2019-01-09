@@ -5,14 +5,14 @@ package com.datastructure.graph;
  * @author admin
  *
  */
-public class KosarajuSCC {
+public class 强连通分量Kosaraju算法 {
 	
 	private int[] id;//顶点V所在的强连通分量id
 	private int count;//强连通分量数
 	private boolean[] marked;//是否被标记过
 	
 	public static void main(String[] args) {
-		Digraph graph = new Digraph(10);
+		有向图 graph = new 有向图(10);
 		graph.addEdge(0, 1);
 		graph.addEdge(0, 4);
 		graph.addEdge(1, 0);
@@ -28,15 +28,15 @@ public class KosarajuSCC {
 		graph.addEdge(7, 4);
 		graph.addEdge(8, 5);
 		graph.addEdge(9, 2);
-		KosarajuSCC test = new KosarajuSCC(graph);
+		强连通分量Kosaraju算法 test = new 强连通分量Kosaraju算法(graph);
 		System.out.println(test.stronglyConnected(3, 1));
 	}
 
-	public KosarajuSCC(Digraph G){
+	public 强连通分量Kosaraju算法(有向图 G){
 		id = new int[G.getV()];
 		marked = new boolean[G.getV()];
 		//对G的反向图进行深度优先遍历
-		DepthFirstOrder order = new DepthFirstOrder(G.reverse());
+		有向图深度优先遍历 order = new 有向图深度优先遍历(G.reverse());
 		System.out.println("reverse size:"+order.reversePost().size());
 		while(!order.reversePost().isEmpty()){
 			int s = order.reversePost().pop();
@@ -50,7 +50,7 @@ public class KosarajuSCC {
 		
 	}
 	
-	public void dfs(Digraph G,int s){
+	public void dfs(有向图 G,int s){
 		System.out.println(s);
 		marked[s] = true;
 		id[s] = count;

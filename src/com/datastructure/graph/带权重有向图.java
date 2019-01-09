@@ -6,17 +6,17 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 带权重的无向图
+ * 带权重的有向图
  * @author admin
  *
  */
-public class EdgeWeightedDigraph {
+public class 带权重有向图 {
 	private int V;//顶点总数
 	private int E;//边的总数
-	private Map<Integer,List<DirectedEdge>> adj;//临接表
-	private List<DirectedEdge> edges;
+	private Map<Integer,List<带权重有向边>> adj;//临接表
+	private List<带权重有向边> edges;
 	
-	public EdgeWeightedDigraph(int v){
+	public 带权重有向图(int v){
 		this.V = v;
 		this.E = 0;
 		adj = new HashMap<>();
@@ -31,11 +31,11 @@ public class EdgeWeightedDigraph {
 		return E;
 	}
 	
-	public void addEdge(DirectedEdge e){
+	public void addEdge(带权重有向边 e){
 		edges.add(e);
 		int v = e.from();
 		int w = e.to();
-		List<DirectedEdge> vAdj = adj.get(v);
+		List<带权重有向边> vAdj = adj.get(v);
 		if(vAdj == null){
 			vAdj = new ArrayList<>();
 		}
@@ -45,11 +45,11 @@ public class EdgeWeightedDigraph {
 		E++;
 	}
 	
-	public List<DirectedEdge> adj(int v){
+	public List<带权重有向边> adj(int v){
 		return adj.get(v);
 	}
 	
-	public List<DirectedEdge> edges(){
+	public List<带权重有向边> edges(){
 		return edges;
 	}
 	

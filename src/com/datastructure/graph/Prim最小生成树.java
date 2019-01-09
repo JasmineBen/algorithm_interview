@@ -9,15 +9,15 @@ import java.util.Queue;
  * @author admin
  *
  */
-public class Prim {
+public class Prim最小生成树 {
 	
 	private boolean[] marked;//最小生成树的顶点
-	private Queue<Edge> mst;//最小生成树的边
-	private PriorityQueue<Edge> pq;//横切边优先队列
+	private Queue<带权重无向边> mst;//最小生成树的边
+	private PriorityQueue<带权重无向边> pq;//横切边优先队列
 	
 	public static void main(String[] args) {
 		TinyEWG ewg = new TinyEWG();
-		Prim test = new Prim(ewg.G);
+		Prim最小生成树 test = new Prim最小生成树(ewg.G);
 	}
 	
 	/**
@@ -28,13 +28,13 @@ public class Prim {
 	 * 判断该边的两个顶点是否访问过，如果没有访问，则分别访问两个顶点
 	 * @param G
 	 */
-	public Prim(EdgeWeightedGraph G){
+	public Prim最小生成树(带权重无向图 G){
 		marked = new boolean[G.V()];
 		mst = new LinkedList<>();
 		pq = new PriorityQueue<>();
 		visit(G, 0);
 		while(!pq.isEmpty()){
-			Edge e = pq.poll();//取最短边
+			带权重无向边 e = pq.poll();//取最短边
 			mst.add(e);
 			System.out.println(e);
 			int v = e.either();
@@ -45,10 +45,10 @@ public class Prim {
 		}
 	}
 	
-	private void visit(EdgeWeightedGraph G,int v){
+	private void visit(带权重无向图 G,int v){
 		marked[v] = true;
 		if(G.adj(v) != null){
-			for(Edge e : G.adj(v)){
+			for(带权重无向边 e : G.adj(v)){
 				if(!marked[e.other(v)]){
 					pq.add(e);
 				}

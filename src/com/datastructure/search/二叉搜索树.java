@@ -4,7 +4,7 @@ package com.datastructure.search;
  * ¶ş²æ²éÕÒÊ÷
  *
  */
-public class BST extends BaseTree{
+public class ¶ş²æËÑË÷Ê÷ extends BaseTree{
 	
 
 	
@@ -149,7 +149,7 @@ public class BST extends BaseTree{
 	
 	
 	public static void main(String[] args) {
-		BST test = new BST();
+		¶ş²æËÑË÷Ê÷ test = new ¶ş²æËÑË÷Ê÷();
 		int[] a = new int[]{5,4,7,6,1,8,9,3,2,10};
 		for(int i : a){
 			test.put(new Key(i),new Value(i));

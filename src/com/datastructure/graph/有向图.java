@@ -11,12 +11,12 @@ import java.util.Map;
  * @author admin
  *
  */
-public class Digraph {
+public class 有向图 {
 	private final int V;// 顶点数
 	private int E;// 边的数量
 	private Map<Integer, List<Integer>> adj;// 邻接表
 
-	public Digraph(int v) {
+	public 有向图(int v) {
 		this.V = v;
 		adj = new HashMap<>();
 	}
@@ -65,8 +65,8 @@ public class Digraph {
 	 * 反向图
 	 * @return
 	 */
-	public Digraph reverse() {
-		Digraph R = new Digraph(V);
+	public 有向图 reverse() {
+		有向图 R = new 有向图(V);
 		for (int v = 0; v < V; v++) {
 			if (adj.get(v) != null) {
 				for (int w : adj.get(v)) {

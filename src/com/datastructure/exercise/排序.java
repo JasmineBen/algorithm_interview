@@ -1,9 +1,9 @@
-package com.datastructure.basic;
+package com.datastructure.exercise;
 
 /**
  * ÅÅÐò
  */
-public class Sort {
+public class ÅÅÐò {
 	
 	public static void main(String[] args) {
 		int[] a = new int[]{5,3,6,2,7,1,4,0,9,8};
@@ -30,14 +30,6 @@ public class Sort {
 	 * @param a
 	 */
 	public static void bubbleSort(int[] a) {
-//		for (int i = a.length - 1; i > 0; i--) {
-//			for (int j = 0; j < i; j++) {
-//				if (a[j] > a[j + 1]) {
-//					swap(a, j, j + 1);
-//				}
-//			}
-//		}
-		
 		for (int i = 0; i<a.length; i++) {
 			for (int j = 0; j < a.length-i-1; j++) {
 				if (a[j] < a[j + 1]) {

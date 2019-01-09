@@ -27,13 +27,17 @@ public class ²»Í¬Â·¾¶ {
 	 */
 	public int uniquePaths(int m, int n) {
 		if (m > 0 && n > 0) {
+			int[][] a = new int[m][n];
 			int[][] dp = new int[m][n];
 			dp[0][0] = 1;
 			for (int i = 0; i < m - 1; i++) {
 				for (int j = 0; j < n - 1; j++) {
-					dp[i + 1][j] = Math.max(dp[i][j],dp[i + 1][j]);
-					dp[i][j + 1] =  Math.max(dp[i][j],dp[i][j+1]);
-					dp[i + 1][j + 1] = dp[i + 1][j] + dp[i][j + 1];
+					if(a[i][j] == 0) {
+						dp[i + 1][j] = Math.max(dp[i][j],dp[i + 1][j]);
+						dp[i][j + 1] =  Math.max(dp[i][j],dp[i][j+1]);
+						dp[i + 1][j + 1] = dp[i + 1][j] + dp[i][j + 1];
+						a[i][j] = 1;
+					}
 				}
 			}
 			return dp[m - 1][n - 1];

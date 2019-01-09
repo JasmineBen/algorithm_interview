@@ -9,9 +9,9 @@ import java.util.Queue;
  * @author admin
  *
  */
-public class Kruskal {
+public class Kruskal最小生成树 {
 
-	private Queue<Edge> mst;
+	private Queue<带权重无向边> mst;
 	
 	/**
 	 * 1.将所有的边按照从小到大排序
@@ -20,16 +20,16 @@ public class Kruskal {
 	 * 3.当有N-1个边时，最小生成树就生成了。(N表示顶点)
 	 * @param G
 	 */
-	public Kruskal(EdgeWeightedGraph G){
+	public Kruskal最小生成树(带权重无向图 G){
 		mst = new LinkedList<>();
-		PriorityQueue<Edge> pq = new PriorityQueue<>();
-		for(Edge e : G.edges()){
+		PriorityQueue<带权重无向边> pq = new PriorityQueue<>();
+		for(带权重无向边 e : G.edges()){
 			pq.add(e);
 		}
-		UF uf = new UF(G.V());
+		连通性算法 uf = new 连通性算法(G.V());
 		int count = G.V();
 		while(count > 1){
-			Edge min = pq.poll();
+			带权重无向边 min = pq.poll();
 			int v = min.either();
 			int w = min.other(v);
 			if(!uf.connected(v,w)){
@@ -45,6 +45,6 @@ public class Kruskal {
 	
 	public static void main(String[] args) {
 		TinyEWG ewg = new TinyEWG();
-		Kruskal test = new Kruskal(ewg.G);
+		Kruskal最小生成树 test = new Kruskal最小生成树(ewg.G);
 	}
 }

@@ -1,4 +1,4 @@
-package com.datastructure.basic;
+package com.datastructure.exercise;
 
 import java.util.Stack;
 
@@ -8,10 +8,10 @@ import java.util.Stack;
  * @author admin
  *
  */
-public class Expression {
+public class 表达式计算 {
 
 	public static void main(String[] args) {
-		Expression test = new Expression();
+		表达式计算 test = new 表达式计算();
 		String input = "2*3/(2-1)+3*(4-1)";
 		System.out.println(test.computePostOrderExpression(input));
 		System.out.println(test.computePreOrderExpression(input));

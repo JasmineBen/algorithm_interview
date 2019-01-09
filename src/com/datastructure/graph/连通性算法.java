@@ -6,12 +6,12 @@ package com.datastructure.graph;
  * @author admin
  *
  */
-public class UF {
+public class 连通性算法 {
 
 	private int[] id;//分量ID
 	private int count;//分量数量
 	
-	public UF(int N){
+	public 连通性算法(int N){
 		count = N;
 		id = new int[N];
 		for(int i=0;i<N;i++){

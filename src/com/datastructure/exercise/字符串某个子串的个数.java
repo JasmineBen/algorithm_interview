@@ -1,7 +1,5 @@
 package com.datastructure.exercise;
 
-import com.datastructure.basic.KMP;
-
 /*
  * 已知一个字符串，比如adsderwsde，寻找其中的一个子字符串比如sde的个数，
  * 如果没有就返回0，有的话返回子字符串的个数。

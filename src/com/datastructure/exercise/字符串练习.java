@@ -6,7 +6,7 @@ import java.util.Queue;
 
 import com.datastructure.basic.ListNode;
 
-public class StringExercise {
+public class ×Ö·û´®Á·Ï° {
 	
 	public static void main(String[] args) {
 //		System.out.println(isDeformation("123", "231"));

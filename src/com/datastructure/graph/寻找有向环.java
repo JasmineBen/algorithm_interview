@@ -8,7 +8,7 @@ import java.util.Stack;
  * @author admin
  *
  */
-public class DirectedCycle {
+public class 寻找有向环 {
 
 	private boolean[] marked;
 	private int[] edgeTo;
@@ -16,7 +16,7 @@ public class DirectedCycle {
 	private boolean[] onStack;// 递归调用栈上的所有顶点
 
 	public static void main(String[] args) {
-		Digraph graph = new Digraph(7);
+		有向图 graph = new 有向图(7);
 		graph.addEdge(0, 5);
 		graph.addEdge(4, 3);
 		graph.addEdge(0, 1);
@@ -25,11 +25,11 @@ public class DirectedCycle {
 		graph.addEdge(0, 2);
 		graph.addEdge(6, 0);
 		graph.addEdge(5, 3);
-		DirectedCycle test = new DirectedCycle(graph);
+		寻找有向环 test = new 寻找有向环(graph);
 		System.out.println(test.hasCycle());
 	}
 
-	public DirectedCycle(Digraph G) {
+	public 寻找有向环(有向图 G) {
 		onStack = new boolean[G.getV()];
 		edgeTo = new int[G.getV()];
 		marked = new boolean[G.getV()];
@@ -41,7 +41,7 @@ public class DirectedCycle {
 		}
 	}
 
-	private void dfs(Digraph G, int v) {
+	private void dfs(有向图 G, int v) {
 		onStack[v] = true;//当前正在正在深度遍历
 		marked[v] = true;
 		if (G.getAdj().get(v) != null) {

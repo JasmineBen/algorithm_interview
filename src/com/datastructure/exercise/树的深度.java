@@ -1,5 +1,7 @@
 package com.datastructure.exercise;
 
+import com.datastructure.basic.TreeNode;
+
 /**
  * 
  * 输入一棵二叉树，求该树的深度。
@@ -7,17 +9,6 @@ package com.datastructure.exercise;
  */
 public class 树的深度 {
 
-	private class TreeNode {
-	    int val = 0;
-	    TreeNode left = null;
-	    TreeNode right = null;
-
-	    public TreeNode(int val) {
-	        this.val = val;
-
-	    }
-
-	}
 	
 	public int TreeDepth(TreeNode root) {
 		if (root == null) {

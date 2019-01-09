@@ -7,10 +7,10 @@ import java.util.List;
  * @author admin
  *
  */
-public class Topological {
-	Digraph G;
+public class 拓扑排序 {
+	有向图 G;
 
-	public Topological(Digraph G){
+	public 拓扑排序(有向图 G){
 		this.G = G;
 	}
 	
@@ -19,7 +19,7 @@ public class Topological {
 	 * @return
 	 */
 	public boolean isGAG(){
-		return new DirectedCycle(G).hasCycle();
+		return new 寻找有向环(G).hasCycle();
 	}
 	
 	/**

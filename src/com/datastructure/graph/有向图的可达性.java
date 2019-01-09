@@ -5,14 +5,14 @@ package com.datastructure.graph;
  * @author admin
  *
  */
-public class DirectedDFS {
+public class 有向图的可达性 {
 	private boolean[] marked;
 	
-	public DirectedDFS(Digraph G,int s){
+	public 有向图的可达性(有向图 G,int s){
 		marked = new boolean[G.getV()];
 	}
 	
-	private void dfs(Digraph G,int s){
+	private void dfs(有向图 G,int s){
 		marked[s] = true;
 		for(int w : G.adj(s)){
 			if(!marked[w]){

@@ -5,14 +5,14 @@ package com.datastructure.graph;
  * @author admin
  *
  */
-public class CC {
+public class 连通分量 {
 
 	private int count;//连通分量的个数
 	private boolean[] marked;
 	private int[] id;
 	
 	public static void main(String[] args) {
-		Graph graph = new Graph(13, false);
+		无向图 graph = new 无向图(13, false);
 		graph.addEdge(0, 5);
 		graph.addEdge(4, 3);
 		graph.addEdge(0, 1);
@@ -27,11 +27,11 @@ public class CC {
 		graph.addEdge(9, 11);
 		graph.addEdge(5, 3);
 		
-		CC cc = new CC(graph);
+		连通分量 cc = new 连通分量(graph);
 		System.out.println("count:"+cc.count);
 	}
 	
-	public CC(Graph G){
+	public 连通分量(无向图 G){
 		marked = new boolean[G.getV()];
 		id = new int[G.getV()];
 		for(int i = 0;i<G.getV();i++){//对每个顶点都做深度优先遍历
@@ -43,7 +43,7 @@ public class CC {
 		}
 	}
 	
-	private void dfs(Graph G,int s){
+	private void dfs(无向图 G,int s){
 		marked[s] = true;
 		id[s] = count;//s在第几组连通分量中
 		for(int w : G.adj(s)){

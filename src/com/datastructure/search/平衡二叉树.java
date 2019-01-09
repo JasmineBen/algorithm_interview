@@ -4,11 +4,11 @@ package com.datastructure.search;
  * 平衡二叉树 左右子树高度差不超过1的二叉查找树
  *
  */
-public class AVLTree extends BST{
+public class 平衡二叉树 extends 二叉搜索树{
 
 
 	public static void main(String[] args) {
-		AVLTree test = new AVLTree();
+		平衡二叉树 test = new 平衡二叉树();
 		int[] array = new int[] { 10, 9 ,8,7,6,5,4,3,2,1};
 		for (int i : array) {
 			test.put(new Key(i), new Value(i));

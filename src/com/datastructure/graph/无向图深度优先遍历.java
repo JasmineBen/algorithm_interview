@@ -1,5 +1,7 @@
 package com.datastructure.graph;
 
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
 /**
@@ -7,16 +9,16 @@ import java.util.Stack;
  * @author admin
  *
  */
-public class DepthFirstSearch {
+public class 无向图深度优先遍历 {
 
 	private boolean[] marked;//该顶点调用过dfs了么
 	private int count;//和S联通的顶点数
 	private int[] edgeTo;//从起点到一个顶点已知路径上的最后一个顶点
 	private int S;//起点
-	private Graph G;
+	private 无向图 G;
 	
 	public static void main(String[] args) {
-		Graph graph = new Graph(7, false);
+		无向图 graph = new 无向图(7, false);
 		graph.addEdge(0, 5);
 		graph.addEdge(4, 3);
 		graph.addEdge(0, 1);
@@ -26,7 +28,7 @@ public class DepthFirstSearch {
 		graph.addEdge(0, 6);
 		graph.addEdge(5, 3);
 		
-		DepthFirstSearch test = new DepthFirstSearch(graph, 0);
+		无向图深度优先遍历 test = new 无向图深度优先遍历(graph, 0);
 		test.pathTo(4);
 	}
 	
@@ -35,22 +37,28 @@ public class DepthFirstSearch {
 	 * @param G
 	 * @param s
 	 */
-	public DepthFirstSearch(Graph G,int s){
+	public 无向图深度优先遍历(无向图 G,int s){
 		marked = new boolean[G.getV()];
 		edgeTo = new int[G.getV()];
 		this.G = G;
 		this.S = s;
-		dfs(G,s);
+		bfs(G,s);
 	}
 	
-	private void dfs(Graph G,int s){
-//		System.out.println(s);
+	private void bfs(无向图 G, int s) {
+		Queue<Integer> queue = new LinkedList<>();
 		marked[s] = true;
 		count++;
-		for(int w : G.adj(s)){
-			if(!marked[w]){
-				edgeTo[w] = s;//从W到S的路径最后一个顶点为S
-				dfs(G, w);
+		queue.add(s);
+		while (!queue.isEmpty()) {
+			int v = queue.poll();
+			System.out.println(v);
+			for (int w : G.adj(v)) {
+				if (!marked[w]) {
+					marked[w] = true;
+					edgeTo[w] = v;// 从W到S的路径最后一个顶点为S
+					queue.add(w);
+				}
 			}
 		}
 	}

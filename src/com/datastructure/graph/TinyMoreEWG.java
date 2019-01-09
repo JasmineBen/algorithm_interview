@@ -2,26 +2,26 @@ package com.datastructure.graph;
 
 public class TinyMoreEWG {
 	
-	public EdgeWeightedGraph G;
+	public 带权重无向图 G;
 
 	public TinyMoreEWG(){
-		G = new EdgeWeightedGraph(8);
-		Edge e1 = new Edge(4, 5, 0.35f);
-		Edge e2 = new Edge(4, 7, 0.37f);
-		Edge e3 = new Edge(5, 7, 0.28f);
-		Edge e4 = new Edge(0, 7, 0.16f);
-		Edge e5 = new Edge(1, 5, 0.32f);
-		Edge e6 = new Edge(0, 4, 0.38f);
-		Edge e7 = new Edge(2, 3, 0.17f);
-		Edge e8 = new Edge(1, 7, 0.19f);
-		Edge e9 = new Edge(0, 2, 0.26f);
-		Edge e10 = new Edge(1, 2, 0.36f);
-		Edge e11 = new Edge(1, 3, 0.29f);
-		Edge e12 = new Edge(2, 7, 0.34f);
-		Edge e13 = new Edge(6, 2, 0.40f);
-		Edge e14 = new Edge(3, 6, 0.52f);
-		Edge e15 = new Edge(6, 0, 0.58f);
-		Edge e16 = new Edge(6, 4, 0.93f);
+		G = new 带权重无向图(8);
+		带权重无向边 e1 = new 带权重无向边(4, 5, 0.35f);
+		带权重无向边 e2 = new 带权重无向边(4, 7, 0.37f);
+		带权重无向边 e3 = new 带权重无向边(5, 7, 0.28f);
+		带权重无向边 e4 = new 带权重无向边(0, 7, 0.16f);
+		带权重无向边 e5 = new 带权重无向边(1, 5, 0.32f);
+		带权重无向边 e6 = new 带权重无向边(0, 4, 0.38f);
+		带权重无向边 e7 = new 带权重无向边(2, 3, 0.17f);
+		带权重无向边 e8 = new 带权重无向边(1, 7, 0.19f);
+		带权重无向边 e9 = new 带权重无向边(0, 2, 0.26f);
+		带权重无向边 e10 = new 带权重无向边(1, 2, 0.36f);
+		带权重无向边 e11 = new 带权重无向边(1, 3, 0.29f);
+		带权重无向边 e12 = new 带权重无向边(2, 7, 0.34f);
+		带权重无向边 e13 = new 带权重无向边(6, 2, 0.40f);
+		带权重无向边 e14 = new 带权重无向边(3, 6, 0.52f);
+		带权重无向边 e15 = new 带权重无向边(6, 0, 0.58f);
+		带权重无向边 e16 = new 带权重无向边(6, 4, 0.93f);
 		G.addEdge(e1);
 		G.addEdge(e2);
 		G.addEdge(e3);

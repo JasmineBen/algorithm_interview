@@ -1,7 +1,5 @@
 package com.datastructure.exercise;
 
-import com.datastructure.basic.Sort;
-
 /**
  * 求整数随机数构成的数组中找到长度大于=3的最长的等差数列
  * 输入[1,3,0,5,-1,6]
@@ -40,7 +38,7 @@ public class 数组最长的等差序列 {
 	 * 它和a[1]，a[2]的差值相同，所以对于a[0]，公差为2而言，即dp[2][0]，它只需要更新一次即可。
 	 */
 	public int[] sulution(int[] a) {
-		Sort.quickSort(a);
+		排序.quickSort(a);
 	
 		int len = a.length;
 		int R = a[len - 1] - a[0] + 1;

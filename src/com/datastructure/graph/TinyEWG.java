@@ -1,17 +1,17 @@
 package com.datastructure.graph;
 
 public class TinyEWG {
-	public EdgeWeightedGraph G;
+	public 带权重无向图 G;
 	
 	public TinyEWG(){
-		G = new EdgeWeightedGraph(8);
-		Edge e1 = new Edge(0,7,0.16f);
-		Edge e2 = new Edge(1,7,0.19f);
-		Edge e3 = new Edge(0,2,0.26f);
-		Edge e4 = new Edge(2,3,0.17f);
-		Edge e5 = new Edge(5,7,0.28f);
-		Edge e6 = new Edge(4,5,0.35f);
-		Edge e7 = new Edge(6,2,0.40f);
+		G = new 带权重无向图(8);
+		带权重无向边 e1 = new 带权重无向边(0,7,0.16f);
+		带权重无向边 e2 = new 带权重无向边(1,7,0.19f);
+		带权重无向边 e3 = new 带权重无向边(0,2,0.26f);
+		带权重无向边 e4 = new 带权重无向边(2,3,0.17f);
+		带权重无向边 e5 = new 带权重无向边(5,7,0.28f);
+		带权重无向边 e6 = new 带权重无向边(4,5,0.35f);
+		带权重无向边 e7 = new 带权重无向边(6,2,0.40f);
 		G.addEdge(e1);
 		G.addEdge(e2);
 		G.addEdge(e3);

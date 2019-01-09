@@ -1,4 +1,4 @@
-package com.datastructure.basic;
+package com.datastructure.exercise;
 
 /**
  * 
